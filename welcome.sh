@@ -26,3 +26,24 @@ else
 echo "employee is absent"
 fi
 
+
+
+#! /bin/bash
+wage_per_hr=20
+part_time_hr=8
+full_day_hr=16
+isPresent=1
+randomCheck=$(( RANDOM%2 ))
+if [ $isPresent -eq $randomCheck ]
+then
+salary=$(( $wage_per_hr * $full_day_hr ))
+echo "$salary"
+else
+salary=$(( $wage_per_hr * $part_time_hr ))
+echo "$salary"
+fi
+
+
+
+
+
