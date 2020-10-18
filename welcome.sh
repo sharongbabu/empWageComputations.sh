@@ -116,5 +116,26 @@ echo "total wage he or she completed 20 days or 100hr:$total"
 
 
 
+#! /bin/bash
+declare -A Dailywage
+declare -A Totalwage
+working_days=20
+per_hr=20
+full_day=8
+isPresent=1
+randomCheck=$(( RANDOM%2 ))
+echo "$randomCheck"
+for((i=1;i<working_days;i++))
+do
+if [ $isPresent -eq $randomCheck ]
+then
+Dailywage[Daily_wage]=$(( $full_day * $per_hr ))
+Totalwage[Total_wage]=$(( ${Dailywage[Daily_wage]} * $i ))
+fi
+done
+echo ${Dailywage[@]}  ${Totalwage[@]}
+
+
+
 
 
