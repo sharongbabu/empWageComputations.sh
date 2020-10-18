@@ -64,3 +64,31 @@ esac
 
 
 
+#! /bin/bash
+working_days=20
+per_hr=20
+full_day=8
+echo "enter choice"
+read n
+case $n in
+0)
+ echo "not available"
+;;
+1)
+for((i=1;i<=working_days;i++))
+do
+
+wage=$(( $full_day * $per_hr ))
+total=$(( $wage * $i ))
+i=$(( $i + 1 ))
+done
+;;
+
+*)
+echo "wrong"
+;;
+esac
+
+
+echo "total wage he or she completed 20 days or 100hr:$total"
+
