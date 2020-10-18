@@ -42,6 +42,25 @@ echo "$salary"
 fi
 
 
+#! /bin/bash -x
+wage_per_hr=20
+full_day_hr=8
+
+randomCheck=$(( RANDOM%2 ))
+echo "enter choice"
+read n
+case $n in
+0)
+echo "not present"
+;;
+1)
+echo "present"
+salary=$(( $wage_per_hr * $full_day_hr ))
+;;
+*)
+echo "wrong "
+;;
+esac
 
 
 
