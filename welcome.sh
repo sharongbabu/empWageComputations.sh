@@ -138,4 +138,46 @@ echo ${Dailywage[@]}  ${Totalwage[@]}
 
 
 
+#! /bin/bash
+declare -A wage
+declare -A total
+declare -A day
+
+working_days=7
+per_hr=20
+full_day=8
+isPresent=1
+randomCheck=$(( RANDOM%2 ))
+echo "$randomCheck"
+for((i=1;i<=working_days;i++))
+do
+if [ $isPresent -eq $randomCheck ]
+then
+wage[Daily_wage]=$(( $full_day * $per_hr ))
+total[Total_wage]=$(( ${wage[Daily_wage]} * $i ))
+fi
+done
+for((i=1;i<=working_days;i++))
+do
+if [ $isPresent -eq $randomCheck ]
+then
+day[DATE]=2018-05-25
+day[LAST_DATE]=2018-06-15
+while [[ $( date +%m-%d-%y -d "${day[DATE]}" ) -le $( date +%m-%d-%y -d "${day[LAST_DATE]}" ) ]]
+do
+day[DATE]=$( date -d "${day[DATE]} next day" +%y-%m-%d )
+echo "Date: ${day[DATE]} and  Dailywage:${wage[Daily_wage]}"
+i=$(( $i + 1 ))
+done
+fi
+done
+
+echo " TotalWage:${total[Total_wage]}"
+
+echo ${day[@]}
+echo ${wage[@]}
+echo ${total[@]}
+
+
+
 
